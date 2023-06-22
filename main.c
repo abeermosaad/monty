@@ -10,7 +10,7 @@ char *value;
 */
 int main(int argc, char const *argv[])
 {
-	char *line = NULL, *line_copy, **opcode_argv;
+	char *line = NULL, *line_copy, *instruction;
 	size_t len = 0;
 	ssize_t read;
 	FILE *file;
@@ -37,13 +37,11 @@ int main(int argc, char const *argv[])
 		if (read == -1)
 			break;
 		line_copy = handle_new_line(line);
-		opcode_argv = generate_argv(line_copy);
-		idx = is_opcode(opcode_argv[0], opcode);
-		if (opcode_argv[1] != NULL)
-		{
-			value = malloc(strlen(opcode_argv[1]) + 1);
-			strncpy(value, opcode_argv[1], strlen(opcode_argv[1]) + 1);
-		}
+		if (strcmp(line_copy, "\n") == 0)
+			continue;
+		instruction = strtok(line_copy, TOK_DELIM);
+		value = strtok(NULL, TOK_DELIM);
+		idx = is_opcode(instruction, opcode);
 		if (idx >= 0)
 			opcode[idx].f(&stack, count);
 		else
@@ -52,6 +50,7 @@ int main(int argc, char const *argv[])
 			exit(EXIT_FAILURE);
 		}
 	}
+	free_list(&stack);
 	free(line);
 	fclose(file);
 	return (0);

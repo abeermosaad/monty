@@ -6,11 +6,17 @@ void push(stack_t **stack, unsigned int line_number)
 	int is_num, number;
 
 	is_num = is_int(value);
-	if(!is_num)
+	if((!is_num))
 	{
-		fprintf(stderr, "L%d: usage: push integer", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	
 	number = atoi(value);
 	new_node->n = number;
 	new_node->prev = NULL;
@@ -37,4 +43,16 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+}
+void free_list(stack_t **stack)
+{
+	stack_t *curr = *stack;
+	stack_t *free_me;
+	while (curr != NULL)
+	{
+		free_me = curr;
+		curr = curr->next;
+		free(free_me);
+	}
+	*stack = NULL;
 }
