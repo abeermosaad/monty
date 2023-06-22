@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * push - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
@@ -31,9 +36,11 @@ void push(stack_t **stack, unsigned int line_number)
 	*stack = new_node;
 }
 /**
- * 
- * 
- */
+ * pall - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *current;
@@ -45,6 +52,11 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		current = current->next;
 	}
 }
+/**
+ * free_list - .
+ * @stack: .
+ * Return: .
+*/
 void free_list(stack_t **stack)
 {
 	stack_t *curr = *stack;

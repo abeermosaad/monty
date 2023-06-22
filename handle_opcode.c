@@ -26,6 +26,11 @@ char *handle_new_line(char *line)
 		line[len - 1] = '\0';
 	return (line);
 }
+/**
+ * is_int - .
+ * @value: .
+ * Return: .
+*/
 
 int is_int(char *value)
 {

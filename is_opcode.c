@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * is_opcode - .
+ * @line: .
+ * @opcode: .
+ * Return: .
+*/
 int is_opcode(char *line, instruction_t opcode[])
 {
 	int i;
