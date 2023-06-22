@@ -56,6 +56,7 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
+stack_t *add_dnodeint_end(stack_t **head, int n);
 
 int is_int(char *value);
 void free_list(stack_t **stack);
