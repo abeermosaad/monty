@@ -35,6 +35,16 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack) || !((*stack)->next))
+	{
+		free_list(stack);
+		return;
+	}
 	num = (*stack)->n;
 	pop(stack, line_number);
 	while (current->next)
