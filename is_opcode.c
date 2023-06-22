@@ -9,7 +9,7 @@ int is_opcode(char *line, instruction_t opcode[])
 {
 	int i;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 	{
 		if (strcmp(line, opcode[i].opcode) == 0)
 			return (i);
