@@ -33,7 +33,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *current = *stack;
 	(void)line_number;
 
-	if(!(*stack) && !((*stack)->next))
+	if((*stack) && ((*stack)->next))
 	{
 		num = (*stack)->n;
 		while (current->next != NULL)
