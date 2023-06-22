@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
 		instruction = strtok(line_copy, TOK_DELIM);
 		value = strtok(NULL, TOK_DELIM);
 		is_num = is_int(value);
-		if ((!is_num))
+		if ((!is_num) && (strcmp(instruction, "push") == 0))
 		{
 			free(line);
 			free_list(&stack);
