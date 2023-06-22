@@ -15,21 +15,15 @@ int main(int argc, char const *argv[])
 	ssize_t read;
 	FILE *file;
 	unsigned int count = 0;
-	int idx;
+	int idx, is_num;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}};
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		error_argc();
 	file = fopen(argv[1], "r");
 	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		error_file(argv[1]);
 	while (1)
 	{
 		count++;
@@ -41,17 +35,25 @@ int main(int argc, char const *argv[])
 			continue;
 		instruction = strtok(line_copy, TOK_DELIM);
 		value = strtok(NULL, TOK_DELIM);
+		is_num = is_int(value);
+		if ((!is_num))
+		{
+			free(line);
+			free_list(&stack);
+			fprintf(stderr, "L%d: usage: push integer\n", count);
+			exit(EXIT_FAILURE);
+		}
 		idx = is_opcode(instruction, opcode);
 		if (idx >= 0)
 			opcode[idx].f(&stack, count);
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", count, line_copy);
-			exit(EXIT_FAILURE);
+			free_list(&stack);
+			error_instruction(count, line_copy, line);
 		}
 	}
-	free_list(&stack);
 	free(line);
+	free_list(&stack);
 	fclose(file);
 	return (0);
 }

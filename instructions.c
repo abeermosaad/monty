@@ -3,14 +3,8 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
-	int is_num, number;
+	int number;
 
-	is_num = is_int(value);
-	if ((!is_num))
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");

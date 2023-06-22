@@ -46,4 +46,8 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int is_int(char *value);
 void free_list(stack_t **stack);
+/***/
+void error_argc();
+void error_file(const char *file);
+void error_instruction(int count, char *line_copy, char *line);
 #endif
