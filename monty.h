@@ -51,6 +51,7 @@ void add(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void div1(stack_t **stack, unsigned int line_number);
 
 int is_int(char *value);
 void free_list(stack_t **stack);

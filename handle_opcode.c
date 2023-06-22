@@ -47,6 +47,5 @@ int is_int(char *value)
 		else
 			return (0);
 	}
-
 	return (1);
 }
