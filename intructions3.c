@@ -44,3 +44,14 @@ void add(stack_t **stack, unsigned int line_number)
 	free(temp);
 	*stack = (*stack)->next;
 }
+/**
+ * nop - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
+void nop(stack_t **stack __attribute__((unused)),
+unsigned int line_number __attribute__((unused)))
+{
+
+}
