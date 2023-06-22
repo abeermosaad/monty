@@ -86,3 +86,22 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stdout, "%d\n", (*stack)->n);
 }
+
+/**
+ * pop - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
+void pop(stack_t **stack, unsigned int line_number)
+{
+	if (!(*stack))
+	{
+		free_list(stack);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}

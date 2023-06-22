@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	FILE *file;
 	unsigned int count = 0;
 	int idx;
-	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {"pint", pint}};
+	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}};
 	stack_t *stack = NULL;
 
 	if (argc != 2)
