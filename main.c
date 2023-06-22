@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 	ssize_t read;
 	FILE *file;
 	unsigned int count = 0;
-	int idx, is_num;
+	int idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}};
 	stack_t *stack = NULL;
 
@@ -35,14 +35,6 @@ int main(int argc, char const *argv[])
 			continue;
 		instruction = strtok(line_copy, TOK_DELIM);
 		value = strtok(NULL, TOK_DELIM);
-		is_num = is_int(value);
-		if ((!is_num) && (strcmp(instruction, "push") == 0))
-		{
-			free(line);
-			free_list(&stack);
-			fprintf(stderr, "L%d: usage: push integer\n", count);
-			exit(EXIT_FAILURE);
-		}
 		idx = is_opcode(instruction, opcode);
 		if (idx >= 0)
 			opcode[idx].f(&stack, count);
