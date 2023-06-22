@@ -32,7 +32,7 @@ int is_int(char *value)
 	char *ptr = value;
 
 	if (value == NULL)
-		return(0);
+		return (0);
 	while (*ptr != '\0')
 	{
 		if (*ptr >= '0' && *ptr <= '9')
