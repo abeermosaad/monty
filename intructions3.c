@@ -109,3 +109,4 @@ void div1(stack_t **stack, unsigned int line_number)
 	free(temp);
 	*stack = (*stack)->next;
 }
+
