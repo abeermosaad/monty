@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "monty.h"
 /**
  * pchar - .
  * @stack: .
