@@ -96,6 +96,7 @@ void pint(stack_t **stack, unsigned int line_number)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
+
 	if (!(*stack))
 	{
 		free_list(stack);
@@ -112,3 +113,4 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = (temp)->next;
 	free(temp);
 }
+
