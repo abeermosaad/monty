@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 		if (read == -1)
 			break;
 		line_copy = handle_new_line(line);
-		if (strcmp(line_copy, "\n") == 0)
+		if (strcmp(line_copy, "\n") == 0 || line_copy[0] == '#')
 			continue;
 		instruction = strtok(line_copy, TOK_DELIM);
 		value = strtok(NULL, TOK_DELIM);
