@@ -38,6 +38,8 @@ int is_int(char *value)
 
 	if (value == NULL)
 		return (0);
+	if (*ptr == '-')
+		ptr++;
 	while (*ptr != '\0')
 	{
 		if (*ptr >= '0' && *ptr <= '9')
