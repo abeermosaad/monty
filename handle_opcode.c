@@ -59,14 +59,15 @@ char **generate_argv(char *line)
 
 int is_int(char *value)
 {
-	int i = 0;
-	while (value[i])
+	char *ptr = value;
+
+	while (*ptr != '\0')
 	{
-		if(value[i] > '0' && value[i] < '9')
-			continue;
+		if (*ptr >= '0' && *ptr <= '9')
+			ptr++;
 		else
-			return(0);
-		i++;
+			return (0);
 	}
-	return(1);
+
+	return (1);
 }

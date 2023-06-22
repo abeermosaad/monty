@@ -18,6 +18,7 @@ int main(int argc, char const *argv[])
 	int idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}};
 	stack_t *stack = NULL;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -38,11 +39,13 @@ int main(int argc, char const *argv[])
 		line_copy = handle_new_line(line);
 		opcode_argv = generate_argv(line_copy);
 		idx = is_opcode(opcode_argv[0], opcode);
-		value = opcode_argv[1];
-		if (idx >= 0)
+		if (opcode_argv[1] != NULL)
 		{
-			opcode[idx].f(&stack, count);
+			value = malloc(strlen(opcode_argv[1]) + 1);
+			strncpy(value, opcode_argv[1], strlen(opcode_argv[1]) + 1);
 		}
+		if (idx >= 0)
+			opcode[idx].f(&stack, count);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", count, line_copy);

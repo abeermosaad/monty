@@ -43,6 +43,6 @@ char *handle_new_line(char *line);
 int is_opcode(char *line, instruction_t opcode[]);
 char **generate_argv(char *line);
 void push(stack_t **stack, unsigned int line_number);
-int is_int(char *value);
 void pall(stack_t **stack, unsigned int line_number);
+int is_int(char *value);
 #endif
