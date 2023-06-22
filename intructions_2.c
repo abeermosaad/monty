@@ -14,7 +14,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	{
 		free_list(stack);
 	}
-	while (curr && (curr->n != 0) && ((*stack)->n > 0 && (*stack)->n < 127))
+	while (curr && ((curr)->n > 0 && (curr)->n < 127))
 	{
 		fprintf(stdout, "%c", curr->n);
 		curr = curr->next;
