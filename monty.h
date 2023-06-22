@@ -44,10 +44,12 @@ int is_opcode(char *line, instruction_t opcode[]);
 char **generate_argv(char *line);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 int is_int(char *value);
 void free_list(stack_t **stack);
 /***/
 void error_argc(void);
 void error_file(const char *file);
 void error_instruction(int count, char *line_copy, char *line);
+
 #endif

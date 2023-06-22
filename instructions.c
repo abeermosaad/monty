@@ -70,3 +70,19 @@ void free_list(stack_t **stack)
 	}
 	*stack = NULL;
 }
+/**
+ * pint - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!(*stack))
+	{
+		free_list(stack);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	fprintf(stdout, "%d\n", (*stack)->n);
+}
