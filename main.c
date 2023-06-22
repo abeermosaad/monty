@@ -52,5 +52,3 @@ int main(int argc, char const *argv[])
 	fclose(file);
 	return (0);
 }
-
-

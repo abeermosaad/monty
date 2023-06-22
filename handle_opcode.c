@@ -17,11 +17,11 @@ char *handle_new_line(char *line)
 		}
 		i++;
 	}
-	len = (int)_strlen(line);
+	len = (int)strlen(line);
 	if (len == 1 && line[0] == '\n')
 		return (line);
 
-	len = (int)_strlen(line);
+	len = (int)strlen(line);
 	if (line[len - 1] == '\n')
 		line[len - 1] = '\0';
 	return (line);
@@ -36,7 +36,7 @@ char **generate_argv(char *line)
 	char **argv, *argv_idx;
 	int i = 0;
 
-	argv = malloc(sizeof(char *) * (_strlen(line) + 1));
+	argv = malloc(sizeof(char *) * (strlen(line) + 1));
 
 	if (!argv)
 	{
@@ -44,13 +44,13 @@ char **generate_argv(char *line)
 		exit(EXIT_FAILURE);
 	}
 
-	argv_idx = _strtok(line, TOK_DELIM);
+	argv_idx = strtok(line, TOK_DELIM);
 	while (argv_idx)
 	{
 		if (argv_idx[0] == '#')
 			break;
 		argv[i] = argv_idx;
-		argv_idx = _strtok(NULL, TOK_DELIM);
+		argv_idx = strtok(NULL, TOK_DELIM);
 		i++;
 	}
 	argv[i] = NULL;
