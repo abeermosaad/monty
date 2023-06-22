@@ -18,7 +18,8 @@ int main(int argc, char const *argv[])
 	int idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {"pint", pint},
 	{"pop", pop}, {"swap", swap}, {"add", add}, {"pchar", pchar}, {"nop", nop},
-	{"sub", sub}, {"div", div1}, {"mul", mul}, {"mod", mod}, {"pstr", pstr}};
+	{"sub", sub}, {"div", div1}, {"mul", mul}, {"mod", mod}, {"pstr", pstr},
+	{"rotl", rotl}};
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -45,8 +46,7 @@ int main(int argc, char const *argv[])
 			free_list(&stack);
 			error_instruction(count, line_copy, line);
 		}
-	}
-	free(line);
+	} free(line);
 	free_list(&stack);
 	fclose(file);
 	return (0);

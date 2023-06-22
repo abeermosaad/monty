@@ -21,3 +21,34 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * rotl - .
+ * @stack: .
+ * @line_number: .
+ * Return: .
+*/
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	int num;
+	stack_t *new_node;
+	stack_t *current = *stack;
+	(void)line_number;
+
+	new_node = malloc(sizeof(stack_t));
+
+	if (!(*stack) || !((*stack)->next))
+	{
+		free_list(stack);
+		return;
+	}
+	num = (*stack)->n;
+	pop(stack, line_number);
+	while (current->next)
+		current = current->next;
+	new_node->n = num;
+	current->next = new_node;
+	new_node->prev = current->next;
+	new_node->next = NULL;
+}
+
+
