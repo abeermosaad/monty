@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {"pint", pint},
 	{"pop", pop}, {"swap", swap}, {"add", add}, {"pchar", pchar}, {"nop", nop},
 	{"sub", sub}, {"div", div1}, {"mul", mul}, {"mod", mod}, {"pstr", pstr},
-	{"rotl", rotl}};
+	{"rotl", rotl}, {"rotr", rotr}};
 	stack_t *stack = NULL;
 
 	if (argc != 2)
